@@ -38,39 +38,39 @@ class CrudController extends Controller
 
     public function create()
     {
-        return view('users.create');
+        return view('lists.create');
     }
 
     public function store(Request $request)
     {
         $this->userService->create($request->all());
 
-        return redirect()->route('users.index')->with('success', 'User created successfully.');
+        return redirect()->route('lists.index')->with('success', 'User created successfully.');
     }
 
     public function show($id)
     {
         $user = $this->userService->find($id);
-        return view('users.show', compact('user'));
+        return view('lists.show', compact('user'));
     }
 
     public function edit($id)
     {
         $user = $this->userService->find($id);
-        return view('users.edit', compact('user'));
+        return view('lists.edit', compact('user'));
     }
 
     public function update(Request $request, $id)
     {
         $this->userService->update($id, $request->all());
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
+        return redirect()->route('lists.index')->with('success', 'User updated successfully.');
     }
 
     public function destroy($id)
     {
         $this->userService->delete($id);
 
-        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
+        return redirect()->route('lists.index')->with('success', 'User deleted successfully.');
     }
 }
