@@ -19,8 +19,7 @@
                                         <td><label for="name" class="col-form-label">Name</label></td>
                                         <td>
                                             <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                                id="name" name="name" value="{{ old('name') }}" required
-                                                pattern="[A-Za-z]+" title="Alphabet only">
+                                                id="name" name="name" value="{{ old('name') }}">
                                             @error('name')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -29,10 +28,9 @@
                                     <tr>
                                         <td><label for="email" class="col-form-label">Email</label></td>
                                         <td>
-                                            <input type="email"
+                                            <input
                                                 class="form-control @error('email') is-invalid @enderror" id="email"
-                                                name="email" value="{{ old('email') }}" required unique
-                                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                                                name="email" value="{{ old('email') }}">
                                             @error('email')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -42,8 +40,7 @@
                                         <td><label for="phone" class="col-form-label">Phone</label></td>
                                         <td>
                                             <input type="text" class="form-control @error('phone') is-invalid @enderror"
-                                                id="phone" name="phone" value="{{ old('phone') }}"
-                                                pattern="[A-Za-z0-9]+" title="Alpha-numeric">
+                                                id="phone" name="phone" value="{{ old('phone') }}">
                                             @error('phone')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror

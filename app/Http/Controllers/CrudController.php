@@ -6,6 +6,7 @@ use App\Services\UserService;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
+
 class CrudController extends Controller
 {
     protected $userService;
@@ -44,6 +45,13 @@ class CrudController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'nullable|alpha_num',
+            'address' => 'nullable|regex:/^[a-zA-Z0-9\s]+$/',
+        ]);
+
         $this->userService->create($request->all());
 
         return redirect()->route('lists.index')->with('success', 'User created successfully.');
@@ -63,6 +71,12 @@ class CrudController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'phone' => 'nullable|alpha_num',
+            'address' => 'nullable|regex:/^[a-zA-Z0-9\s.,#-]+$/',
+        ]);
+
         $this->userService->update($id, $request->all());
 
         return redirect()->route('lists.index')->with('success', 'User updated successfully.');

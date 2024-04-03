@@ -20,8 +20,7 @@
                                         <td><label for="name" class="col-form-label">Name</label></td>
                                         <td>
                                             <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                                id="name" name="name" value="{{ $user->name }}" required
-                                                pattern="[A-Za-z]+" title="Alphabet only">
+                                                id="name" name="name" value="{{ old('name', $user->name) }}">
                                             @error('name')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -32,8 +31,7 @@
                                         <td>
                                             <input type="email"
                                                 class="form-control @error('email') is-invalid @enderror" id="email"
-                                                name="email" value="{{ $user->email }}" required unique
-                                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" disabled>
+                                                name="email" value="{{ $user->email }}" disabled>
                                             @error('email')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -43,8 +41,7 @@
                                         <td><label for="phone" class="col-form-label">Phone</label></td>
                                         <td>
                                             <input type="text" class="form-control @error('phone') is-invalid @enderror"
-                                                id="phone" name="phone" value="{{ $user->phone }}"
-                                                pattern="[A-Za-z0-9]+" title="Alpha-numeric">
+                                                id="phone" name="phone" value="{{ old('phone', $user->phone) }}">
                                             @error('phone')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -54,7 +51,7 @@
                                         <td><label for="address" class="col-form-label">Address</label></td>
                                         <td>
                                             <textarea class="form-control @error('address') is-invalid @enderror"
-                                                id="address" name="address" rows="3">{{ $user->address }}</textarea>
+                                                id="address" name="address" rows="3">{{ old('address', $user->address) }}</textarea>
                                             @error('address')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
