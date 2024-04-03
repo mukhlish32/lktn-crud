@@ -1,18 +1,3 @@
-<!--
-=========================================================
-* Soft UI Dashboard - v1.0.3
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 
 <head>
@@ -24,7 +9,7 @@
   <title>
     CRUD Features
   </title>
-  <!--     Fonts and icons     -->
+  <!-- Fonts and icons -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="{{ asset('assets/plugins/soft-ui/css/nucleo-icons.css') }}" rel="stylesheet" />
@@ -35,6 +20,7 @@
   <link href="{{ asset('assets/plugins/soft-ui/css/nucleo-svg.css') }}" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle"  href="{{ asset('assets/plugins/soft-ui/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
+  
   @stack('style')
 </head>
 
@@ -53,7 +39,9 @@
   <script src="{{ asset('assets/plugins/soft-ui/js/plugins/fullcalendar.min.js') }}"></script>
   <script src="{{ asset('assets/plugins/soft-ui/js/plugins/chartjs.min.js') }}"></script>
   <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+  
   @stack('scripts')
+  @include('sweetalert::alert')
 </body>
 
 </html>
