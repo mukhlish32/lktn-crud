@@ -40,7 +40,7 @@ Before proceeding, make sure you have the following installed:
    php artisan key:generate
    ```
 
-6. Run the database migrations:
+6. Run the database migrations. Make sure the database has already been created before migrating.
 
    ```bash
    php artisan migrate
@@ -61,7 +61,6 @@ php artisan serve
 ```
 
 You can now access the website at http://localhost:8000 in your web browser.
-
 
 # Author
 - Muhammad Mukhlish Syarif
