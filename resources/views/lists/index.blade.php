@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
-                    <div class="row align-items-center">
+                    <div class="card-header">
                         <div class="col">
                             <h6 class="d-inline-block">User Lists</h6>
                             <a href="{{ route('lists.create') }}" class="btn btn-info ms-2 text-capitalize">
@@ -16,7 +16,7 @@
                         </div>
                     </div>
 
-                    <div class="card-body px-0 pt-0 pb-2">
+                    <div class="card-body">
                         <div class="table-responsive p-0">
                             <table class="table align-items-center mb-0 display" id="data-table" style="width:100%">
                                 <thead>
@@ -82,7 +82,6 @@
             searching: true,
             paging: true,
             pagingType: 'simple_numbers',
-            // Add any additional options or configurations here
         });
     });
 </script>

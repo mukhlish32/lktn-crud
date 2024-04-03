@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'home']);
 Route::prefix('crud')->group(function () {
 	Route::get('/lists', [CrudController::class, 'index'])->name('lists.index');
-	Route::get('/lists/{id}', [CrudController::class, 'show'])->name('lists.show');
 	Route::get('/lists/create', [CrudController::class, 'create'])->name('lists.create');
 	Route::post('/lists/store', [CrudController::class, 'store'])->name('lists.store');
 	Route::get('/lists/{id}/edit', [CrudController::class, 'edit'])->name('lists.edit');
 	Route::put('/lists/{id}', [CrudController::class, 'update'])->name('lists.update');
+	Route::get('/lists/{id}/show', [CrudController::class, 'show'])->name('lists.show');
 	Route::delete('/lists/{id}', [CrudController::class, 'destroy'])->name('lists.destroy');
 });

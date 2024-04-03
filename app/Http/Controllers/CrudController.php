@@ -21,19 +21,20 @@ class CrudController extends Controller
             $data = $this->userService->all();
             return DataTables::of($data)
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="'.route('lists.show', $row->id).'" class="btn btn-primary btn-sm">View</a>';
-                    $btn .= ' <a href="'.route('lists.edit', $row->id).'" class="btn btn-warning btn-sm">Edit</a>';
+                    $btn = '<div class="text-center">';
+                    $btn .= '<a href="'.route('lists.show', $row->id).'" class="btn btn-secondary btn-sm text-capitalize">View</a>';
+                    $btn .= ' <a href="'.route('lists.edit', $row->id).'" class="btn btn-primary btn-sm text-capitalize">Edit</a>';
                     $btn .= ' <form action="'.route('lists.destroy', $row->id).'" method="POST" style="display:inline;">
                                 '.csrf_field().'
                                 '.method_field('DELETE').'
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Are you sure?\')">Delete</button>
-                            </form>';
+                                <button type="submit" class="btn btn-danger btn-sm text-capitalize" onclick="return confirm(\'Are you sure?\')">Delete</button>
+                            </form></div>';
                     return $btn;
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('lists');
+        return view('lists.index');
     }
 
     public function create()
