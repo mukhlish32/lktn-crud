@@ -21,11 +21,9 @@
                     Copyright © <script>
                         document.write(new Date().getFullYear())
                     </script> by
-                    <a style="color: #252f40;" href="https://www.creative-tim.com" class="font-weight-bold ml-1"
-                        target="_blank">Muhammad Mukhlish Syarif</a>
+                    <span style="color: #252f40;" class="font-weight-bold ml-1">Muhammad Mukhlish Syarif</span>
                     /
-                    <a style="color: #252f40;" href="https://www.updivision.com" class="font-weight-bold ml-1"
-                        target="_blank">@mukhlish32</a>.
+                    <span style="color: #252f40;" class="font-weight-bold ml-1">@mukhlish32</div>.
                 </p>
             </div>
         </div>
