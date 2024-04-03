@@ -62,6 +62,8 @@ php artisan serve
 
 You can now access the website at http://localhost:8000 in your web browser.
 
+![image](https://github.com/mukhlish32/lktn-crud/assets/85531251/3024f399-6c8f-47cc-bd17-5091d229197f)
+
 # Author
 - Muhammad Mukhlish Syarif
 
