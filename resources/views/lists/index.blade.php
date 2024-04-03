@@ -56,6 +56,7 @@
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script src="{{ asset('assets/plugins/datatables/dataTables.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
     $(document).ready(function() {
         var datatable = $('#data-table').DataTable({
@@ -83,6 +84,25 @@
             paging: true,
             pagingType: 'simple_numbers',
         });
+
+        $(document).on('click', '.btn-delete', function() {
+            var userId = $(this).data('id');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#deleteForm_' + userId).submit();
+                } 
+            });
+        });
     });
 </script>
+
+
 @endpush

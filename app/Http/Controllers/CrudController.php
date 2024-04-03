@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\DataTables;
 
 
@@ -23,12 +24,12 @@ class CrudController extends Controller
             return DataTables::of($data)
                 ->addColumn('action', function ($row) {
                     $btn = '<div class="text-center">';
-                    $btn .= '<a href="'.route('lists.show', $row->id).'" class="btn btn-secondary btn-sm text-capitalize">View</a>';
-                    $btn .= ' <a href="'.route('lists.edit', $row->id).'" class="btn btn-primary btn-sm text-capitalize">Edit</a>';
-                    $btn .= ' <form action="'.route('lists.destroy', $row->id).'" method="POST" style="display:inline;">
-                                '.csrf_field().'
-                                '.method_field('DELETE').'
-                                <button type="submit" class="btn btn-danger btn-sm text-capitalize" onclick="return confirm(\'Are you sure?\')">Delete</button>
+                    $btn .= '<a href="' . route('lists.show', $row->id) . '" class="btn btn-secondary btn-sm text-capitalize">View</a>';
+                    $btn .= ' <a href="' . route('lists.edit', $row->id) . '" class="btn btn-primary btn-sm text-capitalize">Edit</a>';
+                    $btn .= ' <form id="deleteForm_'. $row->id .' "action="' . route('lists.destroy', $row->id) . '" method="POST" style="display:inline;">
+                                ' . csrf_field() . '
+                                ' . method_field('DELETE') . '
+                                <button type="submit" class="btn btn-danger btn-sm text-capitalize btn-delete">Delete</button>
                             </form></div>';
                     return $btn;
                 })
@@ -49,11 +50,12 @@ class CrudController extends Controller
             'name' => 'required|regex:/^[a-zA-Z\s]+$/',
             'email' => 'required|email|unique:users,email',
             'phone' => 'nullable|alpha_num',
-            'address' => 'nullable|regex:/^[a-zA-Z0-9\s]+$/',
+            'address' => 'nullable|regex:/^[a-zA-Z0-9\s.,#-]+$/',
         ]);
 
-        $this->userService->create($request->all());
+        $user = $this->userService->create($request->all());
 
+        Alert::success('Success', 'User ' . $user->name . ' has been created successfully.')->autoclose(5000);
         return redirect()->route('lists.index')->with('success', 'User created successfully.');
     }
 
@@ -77,15 +79,17 @@ class CrudController extends Controller
             'address' => 'nullable|regex:/^[a-zA-Z0-9\s.,#-]+$/',
         ]);
 
-        $this->userService->update($id, $request->all());
+        $user = $this->userService->update($id, $request->all());
 
-        return redirect()->route('lists.index')->with('success', 'User updated successfully.');
+        Alert::success('Success', 'User' . $user->name . ' has been updated successfully.')->autoclose(5000);
+        return redirect()->route('lists.index');
     }
 
     public function destroy($id)
     {
-        $this->userService->delete($id);
+        $user = $this->userService->delete($id);
 
-        return redirect()->route('lists.index')->with('success', 'User deleted successfully.');
+        Alert::success('Success', 'User ' . $user->name . ' has been deleted successfully.')->autoclose(5000);
+        return redirect()->route('lists.index');
     }
 }
