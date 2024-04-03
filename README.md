@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This Laravel is page on website with basic CRUD features on table user. This guide provides step-by-step instructions on how to set up and run the website on your local device.
+This Laravel website features basic CRUD functionality for managing user data. This guide offers step-by-step instructions on how to set up and run the website on your local device.
 
 ## Requirements
 
