@@ -1,52 +1,50 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
-    <div class="container-fluid py-4">
-        <div class="row">
-            <div class="col-12">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <div class="col">
-                            <h6 class="d-inline-block">User Lists</h6>
-                            <a href="{{ route('lists.create') }}" class="btn btn-info ms-2 text-capitalize">
-                                <i class="fas fa-plus"></i>
-                                Add New
-                            </a>
-                        </div>
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <div class="col">
+                        <h6 class="d-inline-block">User Lists</h6>
+                        <a href="{{ route('lists.create') }}" class="btn btn-info ms-2 text-capitalize">
+                            <i class="fas fa-plus"></i>
+                            Add New
+                        </a>
                     </div>
+                </div>
 
-                    <div class="card-body">
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0 display" id="data-table" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Name</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            E-Mail</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Phone
-                                        </th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Created At
-                                        </th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Action</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
+                <div class="card-body">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0 display" id="data-table" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Name</th>
+                                    <th
+                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        E-Mail</th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Phone
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Created At
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Action</th>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</main>
+</div>
 @endsection
 
 @push('style')
